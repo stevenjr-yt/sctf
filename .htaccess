@@ -1,0 +1,13 @@
+# Rewrite Engine On
+RewriteEngine On
+
+# Remove .php extension from URLs
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^([^\.]+)$ $1.php [NC,L]
+
+# Redirect 404 Not Found
+ErrorDocument 404 /404.php
+
+# Redirect 403 Forbidden
+ErrorDocument 403 /forbidden.php
